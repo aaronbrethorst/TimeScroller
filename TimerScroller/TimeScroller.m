@@ -37,12 +37,12 @@
     {
         self.calendar = [NSCalendar currentCalendar];
         
-        self.frame = CGRectMake(0.0f, 0.0f, 320.0f, CGRectGetHeight(self.frame));
+        self.frame = CGRectMake(0.0f, 0.0f, 320.0f, CGRectGetHeight(self.frame) - 1);
         self.alpha = 0.0f;
         self.transform = CGAffineTransformMakeTranslation(10.0f, 0.0f);
         
-        _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 80.0f, 0.0f, 80.0f, CGRectGetHeight(self.frame))];
-        _backgroundView.layer.contents = (id)background.CGImage;
+        _backgroundView = [[UIImageView alloc] initWithImage:background];
+        _backgroundView.frame = CGRectMake(CGRectGetWidth(self.frame) - 80.0f, 0.0f, 80.0f, CGRectGetHeight(self.frame));
         [self addSubview:_backgroundView];
         
         _handContainer = [[UIView alloc] initWithFrame:CGRectMake(5.0f, 4.0f, 20.0f, 20.0f)];
